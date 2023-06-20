@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import "./globals.css";
 import { SocketContextProvider } from "@/components/SocketProvider";
+import Header from "@/components/header/Header";
 
 export const metadata = {
   title: "Debug Baby Music",
@@ -12,7 +13,12 @@ const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="en">
       <body cz-shortcut-listen="true">
-        <SocketContextProvider>{children}</SocketContextProvider>
+        <SocketContextProvider>
+          <Header />
+          <div className="pt-12">
+          {children}
+          </div>
+        </SocketContextProvider>
       </body>
     </html>
   );
