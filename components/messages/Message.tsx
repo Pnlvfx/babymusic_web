@@ -8,7 +8,7 @@ const Message = ({ debug }: { debug: DebuggerProps }) => {
         {debug.category.toUpperCase()}
       </p>
       <div className="rounded-b-md" style={{ backgroundColor: debug.color }}>
-        <ScrollToBottom className="h-[200px] lg:h-[400px] overflow-y-scroll">
+        <ScrollToBottom className="h-[200px] lg:h-[400px]">
           <div className="px-4 py-2">
             {debug.messages.map((_, i) => (
               <p className="font-semibold whitespace-pre text-center" key={i}>
