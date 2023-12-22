@@ -37,7 +37,7 @@ export const SocketContextProvider = ({ children }: PropsWithChildren) => {
   return (
     <SocketProvider.Provider
       value={{
-        socket,
+        socket
       }}
     >
       {children}

@@ -2,7 +2,6 @@ import { LOGO } from "@/config/config"
 import { deviceIsMobile } from "@/lib/apis/serverConfig"
 import Image from "next/image"
 import Link from "next/link"
-import SearchBar from "./SearchBar"
 
 const Header = () => {
     const isMobile = deviceIsMobile()
