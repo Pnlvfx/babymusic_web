@@ -1,7 +1,7 @@
 "use client";
 import { socketInitializer } from "@/lib/socket";
 import {
-  PropsWithChildren,
+  ReactNode,
   createContext,
   useContext,
   useEffect,
@@ -15,11 +15,9 @@ interface SocketProviderProps {
   socket: Socket;
 }
 
-const SocketProvider = createContext<SocketProviderProps | undefined>(
-  undefined
-);
+const SocketProvider = createContext<SocketProviderProps | undefined>(undefined);
 
-export const SocketContextProvider = ({ children }: PropsWithChildren) => {
+export const SocketContextProvider = ({ children }: {children: ReactNode}) => {
   const [socket, setSocket] = useState<Socket>();
   const unmounted = useRef(false);
 
@@ -32,7 +30,7 @@ export const SocketContextProvider = ({ children }: PropsWithChildren) => {
     };
   }, []);
 
-  if (!socket) return <LoadingPage />;
+  if (!socket?.connected) return <LoadingPage />;
   
   return (
     <SocketProvider.Provider
