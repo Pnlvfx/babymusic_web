@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { useSocket } from "./SocketProvider";
+import { useEffect, useRef, useState } from 'react';
+import { useSocket } from './SocketProvider';
 
 const TotalUsers = () => {
   const [connectedUsers, setConnectedUsers] = useState([]);
@@ -11,8 +11,8 @@ const TotalUsers = () => {
   useEffect(() => {
     if (!shouldRun.current) return;
     shouldRun.current = false;
-    console.log('Add ConnectedUsers listener')
-    socket.on("ConnectedUsers", (_) => {
+    console.log('Add ConnectedUsers listener');
+    socket.on('ConnectedUsers', (_) => {
       setConnectedUsers(_);
     });
   }, [socket]);

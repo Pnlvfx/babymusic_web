@@ -1,7 +1,7 @@
-import Connection from "@/components/Connection";
-import Debugger from "@/components/messages/Debugger";
-import Player from "@/components/player/Player";
-import TotalUsers from "@/components/TotalUsers";
+import Connection from '@/components/Connection';
+import Debugger from '@/components/messages/Debugger';
+import Player from '@/components/player/Player';
+import TotalUsers from '@/components/TotalUsers';
 
 const Home = () => {
   return (

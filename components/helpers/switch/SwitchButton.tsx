@@ -1,10 +1,10 @@
-import styles from './switch.module.css'
+import styles from './switch.module.css';
 
 interface SwitchButtonProps {
-  content: string
-  checked: boolean
-  extraClass?: string
-  callback: () => void
+  content: string;
+  checked: boolean;
+  extraClass?: string;
+  callback: () => void;
 }
 
 const SwitchButton = ({ content, extraClass, checked, callback }: SwitchButtonProps) => {
@@ -27,7 +27,7 @@ const SwitchButton = ({ content, extraClass, checked, callback }: SwitchButtonPr
         <div className={styles.checkBox} />
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default SwitchButton
+export default SwitchButton;
