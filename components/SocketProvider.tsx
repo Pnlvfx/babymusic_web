@@ -30,7 +30,7 @@ export const SocketContextProvider = ({ children }: {children: ReactNode}) => {
     };
   }, []);
 
-  if (!socket?.connected) return <LoadingPage />;
+  if (!socket) return <LoadingPage />;
   
   return (
     <SocketProvider.Provider

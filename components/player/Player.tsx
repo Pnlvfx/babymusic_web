@@ -1,8 +1,8 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
-import { useSocket } from "../SocketProvider";
-import { createDarkColor } from "@/lib/color";
-import SwitchButton from "../helpers/switch/SwitchButton";
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import { useSocket } from '../SocketProvider';
+import { createDarkColor } from '@/lib/color';
+import SwitchButton from '../helpers/switch/SwitchButton';
 const playerColor = createDarkColor();
 
 interface CurrentProps {
@@ -24,13 +24,13 @@ const Player = () => {
 
   useEffect(() => {
     if (unmounted.current) return;
-    socket.on("PlayerState", (state: string) => {
+    socket.on('PlayerState', (state: string) => {
       setPlayerState(state);
     });
-    socket.on("Player.current", (current: CurrentProps) => {
+    socket.on('Player.current', (current: CurrentProps) => {
       setCurrent(current);
     });
-    socket.on("Player.next", (tracks) => {
+    socket.on('Player.next', (tracks) => {
       setNext(tracks);
     });
 
@@ -46,38 +46,24 @@ const Player = () => {
   return (
     <div className="mt-3 bg-bbaby-brighter rounded-md text-center">
       <div className="relative">
-      <p className="font-bold py-3">
-        {playerState
-          ? `PLAYER STATE: ${playerState.toUpperCase()} - FROM: ${
-              current?.from.toUpperCase() || "NO FROM"
-            }`
-          : "NO PLAYER"}
-      </p>
-      <div className="absolute top-0 bottom-0 right-0 flex items-center justify-center">
-        <SwitchButton
-          content="Expand"
-          checked={expanded}
-          callback={expand}
-          extraClass=""
-        />
+        <p className="font-bold py-3">
+          {playerState ? `PLAYER STATE: ${playerState.toUpperCase()} - FROM: ${current?.from.toUpperCase() || 'NO FROM'}` : 'NO PLAYER'}
+        </p>
+        <div className="absolute top-0 bottom-0 right-0 flex items-center justify-center">
+          <SwitchButton content="Expand" checked={expanded} callback={expand} extraClass="" />
+        </div>
       </div>
-      </div>
-      <div
-        className="border border-bbaby-border rounded-b-md"
-        style={{ backgroundColor: playerColor }}
-      >
+      <div className="border border-bbaby-border rounded-b-md" style={{ backgroundColor: playerColor }}>
         <div className="px-4 py-2">
           <div className="flex justify-between items-center text-sm font-semibold">
-            <div className="flex-1">PREVIOUS</div>
-            <div className="flex-1">{current?.track || "NO CURRENT TRACK"}</div>
+            <div className="flex-1"></div>
+            <div className="flex-1">{current?.track || 'NO CURRENT TRACK'}</div>
             <div className="flex-1">
               {next.map((track, i) => {
                 if (!expanded && i > 0) return;
                 return (
-                  <div className="" key={i}>
-                    <span className="text-ellipsis whitespace-nowrap">
-                      {track.name}
-                    </span>
+                  <div className="w-[1/3]" key={i}>
+                    <span className="text-ellipsis whitespace-nowrap">{track.name}</span>
                   </div>
                 );
               })}
