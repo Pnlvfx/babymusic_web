@@ -1,17 +1,16 @@
 'use client';
+import ScrollToBottom from 'react-scroll-to-bottom';
 import { useSocket } from '../SocketProvider';
 import Message from './Message';
-import { useSocketMessages } from './useSocketMessages';
 
 const Debugger = () => {
-  const socket = useSocket();
-  const debuggers = useSocketMessages(socket);
+  const { messages } = useSocket();
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
-      {debuggers.map((debug, i) => (
-        <Message key={i} debug={debug} />
+    <ScrollToBottom className="h-[400px] mt-4 rounded-lg border border-bbaby-border bg-bbaby-brighter mx-1">
+      {messages.map((message) => (
+        <Message key={message.msg} message={message} />
       ))}
-    </div>
+    </ScrollToBottom>
   );
 };
 

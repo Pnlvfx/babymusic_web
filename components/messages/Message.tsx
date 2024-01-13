@@ -1,21 +1,15 @@
-import type { DebuggerProps } from './useSocketMessages';
-import ScrollToBottom from 'react-scroll-to-bottom';
+import { destructureColor } from '@/lib/color';
+import type { MessageProps } from './types/message';
 
-const Message = ({ debug }: { debug: DebuggerProps }) => {
+const Message = ({ message }: { message: MessageProps }) => {
   return (
-    <div className="mt-4 mx-1 rounded-md border border-bbaby-border bg-bbaby-brighter">
-      <p className="font-bold text-center py-3">{debug.category.toUpperCase()}</p>
-      <div className="rounded-b-md" style={{ backgroundColor: debug.color }}>
-        <ScrollToBottom className="h-[200px] lg:h-[400px]">
-          <div className="px-4 py-2">
-            {debug.messages.map((_, i) => (
-              <p className="font-semibold whitespace-pre text-center" key={i}>
-                {_}
-              </p>
-            ))}
-          </div>
-        </ScrollToBottom>
+    <div style={{ color: destructureColor(message.color) }} className="p-2 flex items-center">
+      <div className="w-[200px]">
+        <p className="font-bold">
+          {message.category.toUpperCase()}:{'  '}
+        </p>
       </div>
+      <p className="font-semibold whitespace-pre text-sm text-ellipsis">{message.msg}</p>
     </div>
   );
 };

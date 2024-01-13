@@ -10,7 +10,7 @@ const Home = () => {
         <TotalUsers />
         <Connection />
       </div>
-      <Player />
+      {/* <Player /> */}
       <Debugger />
     </div>
   );

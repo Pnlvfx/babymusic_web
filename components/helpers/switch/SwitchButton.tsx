@@ -1,19 +1,17 @@
 import styles from './switch.module.css';
 
 interface SwitchButtonProps {
-  content: string;
   checked: boolean;
   extraClass?: string;
   callback: () => void;
 }
 
-const SwitchButton = ({ content, extraClass, checked, callback }: SwitchButtonProps) => {
+const SwitchButton = ({ extraClass, checked, callback }: SwitchButtonProps) => {
   return (
     <div
       className={`relative box-border flex h-10 w-full cursor-pointer items-center justify-between pl-[52px] pr-4 text-[14px] font-medium leading-[18px] ${extraClass}`}
       onClick={callback}
     >
-      <span>{content}</span>
       <button
         role="switch"
         aria-checked={checked}

@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
 import './globals.css';
-import { SocketContextProvider } from '@/components/SocketProvider';
+import type { ReactNode } from 'react';
+import { SocketProvider } from '@/components/SocketProvider';
 
 export const metadata = {
   title: 'Debug Baby Music',
@@ -11,9 +11,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
       <body cz-shortcut-listen="true">
-        <SocketContextProvider>
-          <div className="pt-12">{children}</div>
-        </SocketContextProvider>
+        <SocketProvider>{children}</SocketProvider>
       </body>
     </html>
   );

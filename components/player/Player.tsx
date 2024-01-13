@@ -50,7 +50,7 @@ const Player = () => {
           {playerState ? `PLAYER STATE: ${playerState.toUpperCase()} - FROM: ${current?.from.toUpperCase() || 'NO FROM'}` : 'NO PLAYER'}
         </p>
         <div className="absolute top-0 bottom-0 right-0 flex items-center justify-center">
-          <SwitchButton content="Expand" checked={expanded} callback={expand} extraClass="" />
+          <SwitchButton checked={expanded} callback={expand} extraClass="" />
         </div>
       </div>
       <div className="border border-bbaby-border rounded-b-md" style={{ backgroundColor: playerColor }}>
